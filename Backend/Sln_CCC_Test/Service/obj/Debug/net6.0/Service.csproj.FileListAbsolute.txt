@@ -1,0 +1,17 @@
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Service.deps.json
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Service.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\ref\Service.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Service.pdb
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Domain.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Infrastructure.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Infrastructure.pdb
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\bin\Debug\net6.0\Domain.pdb
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.csproj.AssemblyReference.cache
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.AssemblyInfoInputs.cache
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.AssemblyInfo.cs
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.csproj.CoreCompileInputs.cache
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.csproj.CopyComplete
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\ref\Service.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Service\obj\Debug\net6.0\Service.pdb

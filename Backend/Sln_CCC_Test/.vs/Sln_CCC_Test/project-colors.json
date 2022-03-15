@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "74ad22cb-f0c3-47a7-b267-24bb05c78954": {
+      "ProjectGuid": "74ad22cb-f0c3-47a7-b267-24bb05c78954",
+      "DisplayName": "DAL",
+      "ColorIndex": 0
+    },
+    "68e3bdfb-7362-44ef-86e0-baab6c33237f": {
+      "ProjectGuid": "68e3bdfb-7362-44ef-86e0-baab6c33237f",
+      "DisplayName": "BL",
+      "ColorIndex": 1
+    },
+    "0203eaa7-6f6a-4ea3-8ee2-eee07c0db20a": {
+      "ProjectGuid": "0203eaa7-6f6a-4ea3-8ee2-eee07c0db20a",
+      "DisplayName": "API",
+      "ColorIndex": 2
+    },
+    "da6a216f-88ff-449b-9c12-1538df6bea16": {
+      "ProjectGuid": "da6a216f-88ff-449b-9c12-1538df6bea16",
+      "DisplayName": "API",
+      "ColorIndex": 3
+    },
+    "8e5323e3-0d15-4049-9993-2ce3663bd378": {
+      "ProjectGuid": "8e5323e3-0d15-4049-9993-2ce3663bd378",
+      "DisplayName": "Domain",
+      "ColorIndex": 4
+    },
+    "fda4575e-88ec-4ae1-b557-eeff78a45295": {
+      "ProjectGuid": "fda4575e-88ec-4ae1-b557-eeff78a45295",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 5
+    },
+    "7e7f8340-256d-466c-bef7-e75044448849": {
+      "ProjectGuid": "7e7f8340-256d-466c-bef7-e75044448849",
+      "DisplayName": "Service",
+      "ColorIndex": 6
+    },
+    "70bdac95-427f-4806-ace4-7f2f232d1a09": {
+      "ProjectGuid": "70bdac95-427f-4806-ace4-7f2f232d1a09",
+      "DisplayName": "WebAPI",
+      "ColorIndex": 7
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 8
+}

@@ -1,0 +1,17 @@
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\ref\Infrastructure.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\Domain.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\bin\Debug\net6.0\Domain.pdb
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
+E:\FreeLanceProj\CCC_Test\Backend\Sln_CCC_Test\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
