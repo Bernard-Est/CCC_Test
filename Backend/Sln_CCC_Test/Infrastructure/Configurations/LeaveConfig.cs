@@ -20,6 +20,7 @@ namespace Infrastructure.Configurations
             leaveBuilder.Property(c => c.NumberOfDays).IsRequired();
             leaveBuilder.Property(c => c.Notes);
             leaveBuilder.Property(c => c.CreationDate).IsRequired();
+            leaveBuilder.HasOne(i => i.Employee).WithMany(c => c.Leaves);
         }
     }
 }

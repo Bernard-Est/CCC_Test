@@ -6,9 +6,10 @@ const routes: Routes = [
   { path: '', component: HomeComponent , children:[
     { path: 'employee', loadChildren: () => import('../../Modules/employee/employee.module').then(m => m.EmployeeModule) },
     { path: 'expenses', loadChildren: () => import('../../Modules/expenses/expenses.module').then(m => m.ExpensesModule) },
-    { path: 'leave', loadChildren: () => import('../../Modules/leave/leave.module').then(m => m.LeaveModule) }
+    { path: 'leave', loadChildren: () => import('../../Modules/leave/leave.module').then(m => m.LeaveModule) },
+    { path: 'expenses', loadChildren: () => import('../../Modules/expenses/expenses.module').then(m => m.ExpensesModule) }
   ]},
-  
+
 ];
 
 @NgModule({

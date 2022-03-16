@@ -29,6 +29,12 @@ namespace WebAPI.Controllers
             return Ok(leave);
         }
 
+        [HttpGet("filter")]
+        public async Task<ActionResult<List<LeaveGetDTO>>> FilterGetLeave([FromQuery]DateTime? from, [FromQuery]DateTime? to, [FromQuery]int? employeeId)
+        {
+            return Ok( await _service.FilterGetLeave(from, to, employeeId));
+        }
+
         [HttpPost]
         public ActionResult<bool> AddLeave([FromBody] LeaveAddDTO leave)
         {

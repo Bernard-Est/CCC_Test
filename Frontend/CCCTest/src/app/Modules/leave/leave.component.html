@@ -1,5 +1,49 @@
-<div >
+<ng-container *ngIf="isUser">
+    <div>
+      <button mat-button (click)="AddLeave({})"> Request a Leave </button>
+    </div>
+  </ng-container>
+
+<ng-container *ngIf="!isUser">
   <div>
-    <button mat-button (click)="AddLeave()"> Request a Leave </button>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-12">
+            <h1>Leaves</h1>
+          </div>
+          <div class="col-3">
+            <mat-form-field>
+              <input matInput placeholder="From" type="date" [(ngModel)]="FromFilter" name="FromFilter"/>
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field>
+              <input matInput placeholder="To" type="date" [(ngModel)]="ToFilter" name="ToFilter" />
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <mat-form-field>
+              <mat-select placeholder="Employee"  name="employeeId" ><mat-option>Choose</mat-option><mat-option *ngFor='let t of ListOfEmployee' [value]='t.employeeId'>{{t.name}}</mat-option></mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-3">
+            <button mat-button (click)="GetFilterLeave()">Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">All Leaves</h3>
+        </div>
+        <div class="card-body">
+          <app-data-table [displayedColumns]="tableColumns" [data]="ListOfLeave" [actions]="tableActions"
+            (onEdit)="AddLeave($event)" (onDelete)="Delete($event)"
+           ></app-data-table>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
+</ng-container>

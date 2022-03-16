@@ -16,26 +16,26 @@ export class ExpenseClaimDetailService {
   GetById(Id:number):Observable<ExpenseClaimDetail>{
     return this.httpClient.get<ExpenseClaimDetail>(this.baseUrl + `/${Id}`)
   }
-  
+
   GetAll(): Observable<ExpenseClaimDetail[]>{
     return this.httpClient.get<ExpenseClaimDetail[]>(this.baseUrl + `/All`)
   }
-  
+
   AddExpenseClaimDetail(expenseClaimDetail: ExpenseClaimDetail) : Observable<boolean>{
     return this.httpClient.post<boolean>(this.baseUrl , expenseClaimDetail)
   }
-  
+
   UpdateExpenseClaimDetail(expenseClaimDetail: ExpenseClaimDetail) : Observable<boolean>{
     return this.httpClient.put<boolean>(this.baseUrl , expenseClaimDetail)
   }
-  
+
   DeleteExpenseClaimDetail(expenseClaimDetail: ExpenseClaimDetail) : Observable<boolean>{
     return this.httpClient.post<boolean>(this.baseUrl + `/delete` , expenseClaimDetail)
   }
 }
 
-export interface ExpenseClaimDetail extends BaseEntity {
-    date: string;
-    description: string;
-    total: number;
+export class ExpenseClaimDetail {
+    date!: string;
+    description!: string;
+    total!: number;
 }

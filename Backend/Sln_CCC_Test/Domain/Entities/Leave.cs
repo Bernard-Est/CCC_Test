@@ -13,6 +13,8 @@ namespace Domain.Entities
         public DateTime To { get; set; }
         public int NumberOfDays { get; set; }
         public string Notes { get; set; }
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
         public LeaveType LeaveType { get; set; }
     }
 }

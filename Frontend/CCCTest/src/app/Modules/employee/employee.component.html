@@ -1,5 +1,26 @@
-<button mat-button style="display: flex; align-items: right;" (click)="AddEmployee()">Edit</button>
-<app-data-table [data]="ListOfEmployee"></app-data-table>
-<!-- <ul *ngFor="let x of ListOfEmployee">
-    <li>{{x.name}}</li>
-</ul> -->
+
+ <section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-6">
+        <h1>Employees</h1>
+      </div>
+      <div class="col-8">
+        <button (click)="AddEmployee({})" type="button" class="btn btn-block btn-outline-secondary header-btn">
+          <i class="fa fa-plus"></i> &nbsp; Add Employee</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">All Employees</h3>
+    </div>
+    <div class="card-body">
+      <app-data-table [displayedColumns]="tableColumns" [data]="ListOfEmployee" [actions]="tableActions"
+        (onEdit)="AddEmployee($event)" (onDelete)="Delete($event)"
+       ></app-data-table>
+    </div>
+  </div>
+</section>

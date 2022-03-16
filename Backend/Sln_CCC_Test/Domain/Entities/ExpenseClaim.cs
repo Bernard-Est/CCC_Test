@@ -12,5 +12,6 @@ namespace Domain.Entities
         public string Description { get; set; }
         public decimal Total { get; set; }
         public bool Status { get; set; }
+        public ICollection<ExpenseClaimDetail> ExpenseClaimDetails { get; set; }
     }
 }

@@ -4,7 +4,6 @@
 <div class="container">
   <div class="row">
       <div class="col-12">
-
           <div class="container entry_section">
               <form fxLayout="column" #f="ngForm">
                 <div>
@@ -20,14 +19,14 @@
                   </div>
                   <div>
                       <mat-form-field>
-                          <input matInput placeholder="To" type="date" [(ngModel)]="to" name="to"  required />
+                          <input matInput placeholder="To" type="date" [(ngModel)]="to" name="to" (ngModelChange)="DiffTheDate()" required />
                           <mat-error>Date is required</mat-error>
                       </mat-form-field>
                   </div>
                   <div>
                       <mat-form-field>
-                          <input matInput placeholder="NumberOfDays" type="number" [(ngModel)]="numberOfDays" name="numberOfDays" required />
-                          <mat-error>number Of Days is required</mat-error>
+                          <input matInput placeholder="NumberOfDays" type="number" min="0" [(ngModel)]="numberOfDays" name="numberOfDays" disabled />
+                          <!-- <mat-error>number Of Days is required</mat-error> -->
                       </mat-form-field>
                   </div>
                   <div>

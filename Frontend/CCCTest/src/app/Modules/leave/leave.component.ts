@@ -1,6 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Leave, LeaveService } from 'src/app/Core/leave.service';
+import { Employee, EmployeeService, GetEmployee } from 'src/app/Core/employee.service';
+import { filterGetLeave, Leave, LeaveGet, LeaveService } from 'src/app/Core/leave.service';
+import { DataTableColumn } from 'src/app/Shared/data-table-columns/data-table-columns';
+import { TableActions } from 'src/app/Shared/table-actions/table-actions';
 import { AddLeaveComponent } from './add-leave/add-leave.component';
 
 @Component({
@@ -10,31 +14,69 @@ import { AddLeaveComponent } from './add-leave/add-leave.component';
 })
 export class LeaveComponent implements OnInit {
 
-  ListOfLeave : Leave[] = []
+  ListOfLeave : LeaveGet[] = []
   isUser : boolean = false
-  constructor(private leaveService: LeaveService,private dialog: MatDialog) { }
+  FromFilter?: Date;
+  ToFilter?: Date;
+  constructor(private leaveService: LeaveService,private dialog: MatDialog, private employeService: EmployeeService) { }
+
+  tableColumns: DataTableColumn[] = [
+    { name: 'id', display: 'Id' },
+    { name: 'from', display: 'From', type:'date' },
+    { name: 'to', display: 'To', type:'date' },
+    { name: 'numberOfDays', display: 'Number Of Days' },
+    { name: 'leaveType', display: 'Leave Type' },
+    {name: 'actions', display:''}
+  ];
+
+  tableActions: TableActions[] = [TableActions.edit,TableActions.delete];
+
+  pipe = new DatePipe('en-LBP');
+  ListOfEmployee : GetEmployee[] = []
+  ListFiltersLeave : LeaveGet[] = []
 
   ngOnInit(): void {
-    if(localStorage.getItem("Username") == "user"){
-      this.isUser == true
+    if(localStorage.getItem("Username") == "admin"){
+      this.isUser = false
     }else{
-      this.isUser == false
+      this.isUser = true
     }
     this.GetAllLeave()
   }
 
   GetAllLeave() {
     this.leaveService.GetAll().subscribe(result => {
-      debugger
       this.ListOfLeave = result
-      console.log(this.ListOfLeave)
     })
   }
 
-  AddLeave(){
+  AddLeave(obj : Object){
     const dialofRef = this.dialog.open(AddLeaveComponent, {
       width: '500px',
-      data: { obj: this.ListOfLeave }
+      data: { obj: this.ListOfLeave , event: obj}
+    })
+  }
+
+  Delete(id: number) {
+    this.leaveService.DeleteLeave(id).subscribe(data => {
+      if (data) {
+        this.ListOfLeave.splice(id, 1);
+      }
+    });
+  }
+
+  GetFilterLeave(){
+    // var f = new filterGetLeave()
+    // f.from = this.FromFilter
+    // f.to = this.ToFilter
+    this.leaveService.FilterGetLeave(this.FromFilter, this.ToFilter,1).subscribe(res => {
+      this.ListFiltersLeave = res
+    })
+  }
+
+  GetAllEmployee(){
+    this.employeService.GetAll().subscribe(result => {
+      this.ListOfEmployee = result;
     })
   }
 

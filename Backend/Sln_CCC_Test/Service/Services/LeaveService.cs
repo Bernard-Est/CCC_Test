@@ -27,7 +27,8 @@ namespace Service.Services
                 From = leaveDTO.From,
                 To = leaveDTO.To,
                 NumberOfDays = leaveDTO.NumberOfDays,
-                Notes = leaveDTO.Notes
+                Notes = leaveDTO.Notes,
+                EmployeeId = leaveDTO.EmployeeId
             };
             return _repo.Add(leave);
         }
@@ -35,6 +36,19 @@ namespace Service.Services
         public bool Delete(int id)
         {
             return _repo.Delete(id);
+        }
+
+        public async Task<List<LeaveGetDTO>> FilterGetLeave(DateTime? from, DateTime? to, int? employeeId)
+        {
+            return await _repo.GetQueryable().Include(e => e.LeaveType).Select(e => new LeaveGetDTO
+            {
+                Id = e.Id,
+                LeaveType = e.LeaveType.Name,
+                From = e.From,
+                To = e.To,
+                NumberOfDays = e.NumberOfDays,
+                Notes = e.Notes
+            }).Where(w => w.From >= from && w.To <= to).ToListAsync();
         }
 
         public async Task<List<LeaveGetDTO>> GetAll()
@@ -49,6 +63,8 @@ namespace Service.Services
                 Notes= e.Notes
             }).ToListAsync();
         }
+
+        
 
         public async Task<LeaveGetDTO> GetById(int id)
         {
@@ -72,7 +88,8 @@ namespace Service.Services
                 From = leave.From,
                 To = leave.To,
                 NumberOfDays = leave.NumberOfDays,
-                Notes = leave.Notes
+                Notes = leave.Notes,
+                EmployeeId = leave.EmployeeId
             };
             return _repo.Update(lea);
         }

@@ -4,6 +4,7 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(HRContext))]
-    partial class HRContextModelSnapshot : ModelSnapshot
+    [Migration("20220316142428_20220316")]
+    partial class _20220316
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,15 +124,10 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpenseClaimId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ExpenseClaimId");
 
                     b.ToTable("ExpenseClaimDetail");
                 });
@@ -205,17 +202,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("Domain.Entities.ExpenseClaimDetail", b =>
-                {
-                    b.HasOne("Domain.Entities.ExpenseClaim", "ExpenseClaim")
-                        .WithMany("ExpenseClaimDetails")
-                        .HasForeignKey("ExpenseClaimId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ExpenseClaim");
-                });
-
             modelBuilder.Entity("Domain.Entities.Leave", b =>
                 {
                     b.HasOne("Domain.Entities.Employee", "Employee")
@@ -243,11 +229,6 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Employee", b =>
                 {
                     b.Navigation("Leaves");
-                });
-
-            modelBuilder.Entity("Domain.Entities.ExpenseClaim", b =>
-                {
-                    b.Navigation("ExpenseClaimDetails");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveType", b =>

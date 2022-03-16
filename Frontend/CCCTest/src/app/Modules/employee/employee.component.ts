@@ -4,8 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DepartementService } from 'src/app/Core/departement.service';
-import { Employee, EmployeeService } from 'src/app/Core/employee.service';
+import { Employee, EmployeeService, GetEmployee } from 'src/app/Core/employee.service';
 import { DataTableColumn } from 'src/app/Shared/data-table-columns/data-table-columns';
+import { TableActions } from 'src/app/Shared/table-actions/table-actions';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 
@@ -17,20 +18,23 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 export class EmployeeComponent implements OnInit {
 
-  ListOfEmployee: Employee[] = []
+  ListOfEmployee: GetEmployee[] = []
   DepartmentName: string = ''
 
   ngOnInit(): void {
     this.GetAllEmployee()
   }
 
-  tableColumns: DataTableColumn[] = [
+   tableColumns: DataTableColumn[] = [
     { name: 'id', display: 'Id' },
     { name: 'name', display: 'Name' },
     { name: 'email', display: 'Email' },
     { name: 'address', display: 'Address' },
-    { name: 'departmentName', display: 'Department' }
+    { name: 'departementName', display: 'Department' },
+    {name: 'actions' , display: ''}
   ];
+
+  tableActions: TableActions[] = [TableActions.edit,TableActions.delete];
 
   constructor(private employeeService: EmployeeService, private dialog: MatDialog) { }
 
@@ -38,16 +42,29 @@ export class EmployeeComponent implements OnInit {
   GetAllEmployee() {
     this.employeeService.GetAll().subscribe(result => {
       debugger
-      this.ListOfEmployee = result
+      this.ListOfEmployee = result;
       console.log(this.ListOfEmployee)
+    })
+
+  }
+
+  AddEmployee(obj : Object) {
+    debugger
+    const dialofRef = this.dialog.open(AddEmployeeComponent, {
+      width: '500px',
+      data: { obj: this.ListOfEmployee , event: obj }
+
     })
   }
 
-  AddEmployee() {
-    const dialofRef = this.dialog.open(AddEmployeeComponent, {
-      width: '500px',
-      data: { obj: this.ListOfEmployee }
-    })
+
+  Delete(obj: any) {
+    debugger
+    this.employeeService.DeleteEmployee(obj.id).subscribe(data => {
+      if (data) {
+        this.ListOfEmployee.splice(obj.id, 1);
+      }
+    });
   }
 }
 

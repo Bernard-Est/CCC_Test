@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FromEventTarget } from 'rxjs/internal/observable/fromEvent';
 import { environment } from 'src/environments/environment';
 import { BaseEntity } from './baseEntity';
 import { LeaveType } from './leave-type.service';
@@ -18,8 +19,8 @@ export class LeaveService {
     return this.httpClient.get<Leave>(this.baseUrl + `/${Id}`)
   }
 
-  GetAll(): Observable<Leave[]>{
-    return this.httpClient.get<Leave[]>(this.baseUrl + `/All`)
+  GetAll(): Observable<LeaveGet[]>{
+    return this.httpClient.get<LeaveGet[]>(this.baseUrl + `/All`)
   }
 
   AddLeave(leave: LeaveAdd) : Observable<boolean>{
@@ -32,6 +33,10 @@ export class LeaveService {
 
   DeleteLeave(Id:number) : Observable<boolean>{
     return this.httpClient.post<boolean>(this.baseUrl + `/delete` , Id)
+  }
+
+  FilterGetLeave(from?: Date ,to?: Date, employeeId?: number){
+    return this.httpClient.get<LeaveGet[]>(this.baseUrl + `/filter?from=${from}&to=${to}&employeeId=${employeeId}`)
   }
 }
 
@@ -49,4 +54,32 @@ export interface LeaveAdd {
   numberOfDays: number;
   notes: string;
   leaveTypeId : number
+  employeeId :number
 }
+
+export interface LeaveUpdate {
+  Id? :number
+  from: Date;
+  to: Date;
+  numberOfDays: number;
+  notes: string;
+  leaveTypeId : number
+  employeeId : number
+}
+
+export interface LeaveGet {
+  from: Date;
+  to: Date;
+  numberOfDays: number;
+  notes: string;
+  leaveTypeId : number
+  employeeId : number
+  employeeName: string
+}
+
+export class filterGetLeave{
+  from?: Date
+  to?: Date
+  employeeId?: number
+}
+

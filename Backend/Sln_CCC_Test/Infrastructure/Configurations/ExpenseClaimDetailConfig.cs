@@ -18,6 +18,7 @@ namespace Infrastructure.Configurations
             expenseClaimDetailBuilder.Property(c => c.Description).IsRequired();
             expenseClaimDetailBuilder.Property(c => c.Total).IsRequired();
             expenseClaimDetailBuilder.Property(c => c.CreationDate).IsRequired();
+            expenseClaimDetailBuilder.HasOne(i => i.ExpenseClaim).WithMany(c => c.ExpenseClaimDetails);
         }
     }
 }

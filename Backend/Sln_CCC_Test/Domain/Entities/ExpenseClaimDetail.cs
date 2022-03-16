@@ -11,5 +11,7 @@ namespace Domain.Entities
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public decimal Total { get; set; }
+        public int ExpenseClaimId { get; set; }
+        public ExpenseClaim ExpenseClaim { get; set; }
     }
 }

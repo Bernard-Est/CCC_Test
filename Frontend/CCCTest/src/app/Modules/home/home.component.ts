@@ -38,13 +38,13 @@ export class HomeComponent implements OnInit {
     if(localStorage.getItem("Username") == "user"){
       this.navMenu = [
         {Title : "Leave" , Route : "/Home/leave"},
-        {Title : "Expenses" , Route : "/Home/Login"}
+        {Title : "Expenses" , Route : "/Home/expenses"}
       ]
     }else if(localStorage.getItem("Username") == "admin"){
       this.navMenu = [
         {Title : "Employees" , Route : "/Home/employee"},
-        {Title : "List Leaves" , Route : "/Home/Login"},
-        {Title : "List Expenses" , Route : "/Home/Login"}
+        {Title : "List Leaves" , Route : "/Home/leave"},
+        {Title : "List Expenses" , Route : "/Home/expenses"}
       ]
     }
   }

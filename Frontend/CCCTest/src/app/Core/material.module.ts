@@ -45,6 +45,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DataTableComponent } from '../Shared/data-table/data-table/data-table.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DataTableComponent } from '../Shared/data-table/data-table/data-table.c
   ],
 
   imports: [
+    CommonModule,
     MatPaginatorModule,
     MatTableModule,
   ],

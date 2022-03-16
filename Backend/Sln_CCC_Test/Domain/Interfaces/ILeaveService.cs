@@ -14,6 +14,7 @@ namespace Domain.Interfaces
         bool Delete(int id);
         bool Update(LeaveAddDTO leave);
         Task<List<LeaveGetDTO>> GetAll();
+        Task<List<LeaveGetDTO>> FilterGetLeave(DateTime? from, DateTime? to, int? employeeId);
         Task<LeaveGetDTO> GetById(int id);
     }
 }

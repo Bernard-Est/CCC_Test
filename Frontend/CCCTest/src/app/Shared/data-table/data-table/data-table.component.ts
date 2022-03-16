@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataTableColumn } from '../../data-table-columns/data-table-columns';
@@ -11,7 +11,7 @@ import { TableActions } from '../../table-actions/table-actions';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss']
 })
-export class DataTableComponent implements OnInit , OnChanges {
+export class DataTableComponent implements OnInit , OnChanges, AfterViewInit {
   @Input() displayedColumns: DataTableColumn[] = [];
   @Input() data: any[] = [];
   @Input() actions: TableActions[] = [];
@@ -24,15 +24,19 @@ export class DataTableComponent implements OnInit , OnChanges {
   public dataSource = new MatTableDataSource<any>();
 
   constructor() { }
+  ngAfterViewInit(): void {
+    // this.dataSource = new MatTableDataSource<any>(this.data);
+    // this.dataSource.paginator = this.paginator;
+  }
+
 
   ngOnInit(): void {
+
     this.columns = this.displayedColumns.map(col => col.name);
-    console.log("------->" , this.columns)
-    this.dataSource = new MatTableDataSource<any>(this.data);
-    console.log("------------------->" , this.dataSource)
+
   }
   ngOnChanges() {
-
+    this.dataSource = new MatTableDataSource<any>(this.data);
     this.dataSource.paginator = this.paginator;
   }
 

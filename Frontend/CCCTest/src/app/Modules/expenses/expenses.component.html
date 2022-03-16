@@ -1,1 +1,61 @@
-<p>expenses works!</p>
+<mat-card>
+  <mat-card-content>
+    <form fxLayout="column" #f="ngForm">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Date" type="date" [(ngModel)]="expense.date" name="date" required />
+          <mat-error>Date is required</mat-error>
+      </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field>
+              <input matInput placeholder="Description" type="text" [(ngModel)]="expense.description" name="description"  required />
+              <mat-error>Description is required</mat-error>
+          </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field>
+              <input matInput placeholder="Total" type="number" min="0" [(ngModel)]="expense.total" name="total" required />
+              <mat-error>Total is required</mat-error>
+          </mat-form-field>
+      </div>
+        <mat-slide-toggle [(ngModel)]="expense.status" name="status"  required>Status</mat-slide-toggle>
+
+
+      <button mat-stroked-button (click)="addExpenseClaimDetail()"><mat-icon  >edit</mat-icon> Add Expense Details</button>
+  <ng-container  *ngFor="let expenseDetail of expense.expenseClaimDetails">
+    <mat-card>
+<mat-card-content>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Date" type="date" [(ngModel)]="expenseDetail.date" name="date" [ngModelOptions]="{standalone: true}" required />
+      <mat-error>Date is required</mat-error>
+  </mat-form-field>
+  </div>
+  <div>
+      <mat-form-field>
+          <input matInput placeholder="Description" type="text" [(ngModel)]="expenseDetail.description" [ngModelOptions]="{standalone: true}" name="description"  required />
+          <mat-error>Description is required</mat-error>
+      </mat-form-field>
+  </div>
+  <div>
+      <mat-form-field>
+          <input matInput placeholder="Total" type="number" min="0" [(ngModel)]="expenseDetail.total" [ngModelOptions]="{standalone: true}" name="total" required />
+          <mat-error>Total is required</mat-error>
+      </mat-form-field>
+  </div>
+</mat-card-content>
+    </mat-card>
+
+  </ng-container>
+  <div class="row">
+    <div class="col col-md-6">
+        <button [disabled]="!f.valid" mat-raised-button color="primary" type="button" (click)="AddExpenses()"
+            class="btn btn-outline-secondary btn-block">
+            Save
+        </button>
+    </div>
+</div>
+</form>
+  </mat-card-content>
+</mat-card>

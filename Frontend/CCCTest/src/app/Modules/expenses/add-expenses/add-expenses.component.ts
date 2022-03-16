@@ -3,11 +3,11 @@ import { ExpenseClaimDetail, ExpenseClaimDetailService } from 'src/app/Core/expe
 import { ExpenseClaim, ExpenseClaimService } from 'src/app/Core/expense-claim.service';
 
 @Component({
-  selector: 'app-expenses',
-  templateUrl: './expenses.component.html',
-  styleUrls: ['./expenses.component.scss']
+  selector: 'app-add-expenses',
+  templateUrl: './add-expenses.component.html',
+  styleUrls: ['./add-expenses.component.scss']
 })
-export class ExpensesComponent implements OnInit {
+export class AddExpensesComponent implements OnInit {
 
   constructor(private expensesService : ExpenseClaimService, private expensesDetails : ExpenseClaimDetailService) { }
 
@@ -17,19 +17,13 @@ export class ExpensesComponent implements OnInit {
   status : boolean = false
   expenseClaimDetails : ExpenseClaimDetail[] = []
 
-  expense: ExpenseClaim = new ExpenseClaim();
-
   ngOnInit(): void {
   }
 
   AddExpenses(){
-
-    this.expensesService.AddExpenseClaim(this.expense).subscribe(d => {
+    var exp: ExpenseClaim = { date: this.date, description:this.description, total:this.total, status:this.status, expenseClaimDetails : this.expenseClaimDetails}
+    this.expensesService.AddExpenseClaim(exp).subscribe(d => {
       //toa
     })
-  }
-  addExpenseClaimDetail(){
-    debugger
-    this.expense.expenseClaimDetails.push(new ExpenseClaimDetail())
   }
 }

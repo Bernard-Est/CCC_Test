@@ -13,5 +13,6 @@ namespace Domain.Entities
         public string Address { get; set; }
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
+        public ICollection<Leave> Leaves { get; set; }
     }
 }

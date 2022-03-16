@@ -14,5 +14,6 @@ namespace Domain.DTO
         public DateTime To { get; set; }
         public int NumberOfDays { get; set; }
         public string Notes { get; set; }
+        public int EmployeeId { get; set; }
     }
 }

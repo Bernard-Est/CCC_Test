@@ -53,6 +53,7 @@ namespace Service.Services
             var emps = _repo.GetQueryable().Where(e => e.Id == employee.Id);
             var empl = new Employee
             {
+                Id = (int)employee.Id,
                 Name = employee.Name,
                 Email = employee.Email,
                 Address = employee.Address,
