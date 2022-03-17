@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseClaimDetail, ExpenseClaimDetailService } from 'src/app/Core/expense-claim-detail.service';
 import { ExpenseClaim, ExpenseClaimService } from 'src/app/Core/expense-claim.service';
+import { ToastService } from 'src/app/Core/toast.service';
 
 @Component({
   selector: 'app-expenses',
@@ -9,7 +10,7 @@ import { ExpenseClaim, ExpenseClaimService } from 'src/app/Core/expense-claim.se
 })
 export class ExpensesComponent implements OnInit {
 
-  constructor(private expensesService : ExpenseClaimService, private expensesDetails : ExpenseClaimDetailService) { }
+  constructor(private expensesService : ExpenseClaimService, private expensesDetails : ExpenseClaimDetailService, private toastr : ToastService) { }
 
   date! : Date
   description : string = ''
@@ -25,7 +26,7 @@ export class ExpensesComponent implements OnInit {
   AddExpenses(){
 
     this.expensesService.AddExpenseClaim(this.expense).subscribe(d => {
-      //toa
+      this.toastr.showSuccess("Expenses Added!")
     })
   }
   addExpenseClaimDetail(){
@@ -33,3 +34,10 @@ export class ExpensesComponent implements OnInit {
     this.expense.expenseClaimDetails.push(new ExpenseClaimDetail())
   }
 }
+
+
+// This Section still need :
+  // The Total of all details and bind it in the field
+  // Get all extends as admin
+  // Get extends by employee
+  // Some DTO => details in backend

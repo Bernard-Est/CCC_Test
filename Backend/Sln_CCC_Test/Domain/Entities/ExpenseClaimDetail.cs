@@ -15,3 +15,5 @@ namespace Domain.Entities
         public ExpenseClaim ExpenseClaim { get; set; }
     }
 }
+
+// Need two more DTO to finilyze all the process

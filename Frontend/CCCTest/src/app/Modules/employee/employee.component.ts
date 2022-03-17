@@ -69,3 +69,7 @@ export class EmployeeComponent implements OnInit {
 }
 
 
+// Add - Update - Delete Employee
+// Getting All employee as admin
+// Search for any employee by any properties in the Datatable
+// Shared component named datatable is used here in the html to display a table and to be reusable all time

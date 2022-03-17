@@ -22,6 +22,9 @@ builder.Services.AddCors(opt =>
     });
 });
 
+// We can here user any DB in AddDbContext => instead of UseSqlServer we can use PostgreSQL , Vertica ...
+
+
 builder.Services.AddDbContext<HRContext>(options => options.UseSqlServer(
     _configuration.GetConnectionString("DefaultConnection")
 ));

@@ -18,13 +18,6 @@ export class HomeComponent implements OnInit {
 
   navMenu: any[] = []
 
-  fillerContent = Array.from(
-    {length: 50},
-    () =>
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    .`,
-  );
-
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private route : Router) {
@@ -50,13 +43,18 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+
   }
 
   logout(){
     this.route.navigateByUrl('/Login').then()
   }
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
+
 }
 
 
+// No Authentication
+// Condition on two static users : admin - user
+// Getting admin/user from the local storage
+// button logout should be set it in the right
+// Simple Dashboard design

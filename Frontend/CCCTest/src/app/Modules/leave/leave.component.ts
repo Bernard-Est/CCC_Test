@@ -81,3 +81,16 @@ export class LeaveComponent implements OnInit {
   }
 
 }
+
+// Request a leave by the user by pressing the button and fill the info
+// Getting all the info of the Leaves
+// Searching and getting the name of any property of the datatable
+// Filtering by date from - to and by employee
+// Update the Leaves by id , and delete
+// using date pipe to format the date from datetime
+// using datatable shared componenet
+
+// Need :
+    // Employee dropdown don't contain data because system is missing the authentication by employee to get his/her credentials
+    // and then we can get like we are getting the info of the user and filter by employee
+    // so I'm setting all time the employeeId = 1 although all filters are nullable.
